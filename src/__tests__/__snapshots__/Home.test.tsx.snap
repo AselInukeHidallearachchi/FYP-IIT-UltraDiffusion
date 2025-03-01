@@ -1,0 +1,309 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home component matches snapshot 1`] = `
+<div
+  className="relative"
+>
+  <div
+    className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-600 opacity-10"
+  />
+  <div
+    className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24"
+  >
+    <div
+      className="text-center"
+    >
+      <h1
+        className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl"
+      >
+        <span
+          className="block"
+        >
+          Enhancing Ultrasound Imaging
+        </span>
+        <span
+          className="block text-indigo-600"
+        >
+          with Denoising Diffusion Models
+        </span>
+      </h1>
+      <p
+        className="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl"
+      >
+        Advancing medical imaging quality through state-of-the-art deep learning techniques. Our research focuses on improving ultrasound image clarity using Denoising Diffusion Probabilistic Models.
+      </p>
+      <div
+        className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8"
+      >
+        <div
+          className="rounded-md shadow"
+        >
+          <a
+            className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
+            href="/denoise"
+            onClick={[Function]}
+          >
+            Start Using Now
+            <svg
+              className="lucide lucide-arrow-right ml-2 h-5 w-5"
+              fill="none"
+              height={24}
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              viewBox="0 0 24 24"
+              width={24}
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5 12h14"
+              />
+              <path
+                d="m12 5 7 7-7 7"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      className="mt-20"
+    >
+       
+      <h2
+        className="text-3xl font-extrabold text-gray-900 text-center mb-16"
+      >
+        Advanced Image Denoising Technology
+      </h2>
+      <div
+        className="grid grid-cols-1 gap-16 lg:grid-cols-3"
+      >
+        <div
+          className="relative"
+        >
+          <div
+            className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white mb-8"
+          >
+            <svg
+              className="lucide lucide-zap h-6 w-6"
+              fill="none"
+              height={24}
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              viewBox="0 0 24 24"
+              width={24}
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"
+              />
+            </svg>
+          </div>
+          <div>
+            <h3
+              className="text-xl font-semibold text-gray-900"
+            >
+              Noise Reduction
+            </h3>
+            <p
+              className="mt-3 text-base text-gray-500"
+            >
+              Our DDPM model effectively removes various types of noise while preserving important anatomical details in ultrasound images. The advanced architecture ensures high-quality results across different imaging conditions.
+            </p>
+          </div>
+        </div>
+        <div
+          className="relative"
+        >
+          <div
+            className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white mb-8"
+          >
+            <svg
+              className="lucide lucide-clock h-6 w-6"
+              fill="none"
+              height={24}
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              viewBox="0 0 24 24"
+              width={24}
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                cx="12"
+                cy="12"
+                r="10"
+              />
+              <polyline
+                points="12 6 12 12 16 14"
+              />
+            </svg>
+          </div>
+          <div>
+            <h3
+              className="text-xl font-semibold text-gray-900"
+            >
+              Real-time Processing
+            </h3>
+            <p
+              className="mt-3 text-base text-gray-500"
+            >
+              Optimized for speed and efficiency, our system processes images in real-time, making it suitable for live ultrasound imaging applications. The streamlined pipeline ensures minimal latency without compromising quality.
+            </p>
+          </div>
+        </div>
+        <div
+          className="relative"
+        >
+          <div
+            className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white mb-8"
+          >
+            <svg
+              className="lucide lucide-cpu h-6 w-6"
+              fill="none"
+              height={24}
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              viewBox="0 0 24 24"
+              width={24}
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                height="16"
+                rx="2"
+                width="16"
+                x="4"
+                y="4"
+              />
+              <rect
+                height="6"
+                width="6"
+                x="9"
+                y="9"
+              />
+              <path
+                d="M15 2v2"
+              />
+              <path
+                d="M15 20v2"
+              />
+              <path
+                d="M2 15h2"
+              />
+              <path
+                d="M2 9h2"
+              />
+              <path
+                d="M20 15h2"
+              />
+              <path
+                d="M20 9h2"
+              />
+              <path
+                d="M9 2v2"
+              />
+              <path
+                d="M9 20v2"
+              />
+            </svg>
+          </div>
+          <div>
+            <h3
+              className="text-xl font-semibold text-gray-900"
+            >
+              Advanced Processing
+            </h3>
+            <p
+              className="mt-3 text-base text-gray-500"
+            >
+              Our system leverages state-of-the-art deep learning techniques to provide superior denoising results. The model adapts to different noise patterns and image characteristics automatically.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="mt-32"
+    >
+      <div
+        className="grid grid-cols-1 md:grid-cols-2 gap-8"
+      >
+        <div
+          className="relative group"
+        >
+          <img
+            alt="Medical ultrasound machine"
+            className="w-full h-64 object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105"
+            src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1000&q=80"
+          />
+          <div
+            className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"
+          >
+            <div
+              className="absolute bottom-4 left-4 text-white"
+            >
+              <h4
+                className="text-lg font-semibold"
+              >
+                State-of-the-art Equipment
+              </h4>
+              <p
+                className="text-sm"
+              >
+                Advanced ultrasound imaging technology
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          className="relative group"
+        >
+          <img
+            alt="Digital medical display"
+            className="w-full h-64 object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105"
+            src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=1000&q=80"
+          />
+          <div
+            className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"
+          >
+            <div
+              className="absolute bottom-4 left-4 text-white"
+            >
+              <h4
+                className="text-lg font-semibold"
+              >
+                Digital Processing
+              </h4>
+              <p
+                className="text-sm"
+              >
+                Real-time image enhancement
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="mt-32 text-center"
+    >
+      <h2
+        className="text-3xl font-extrabold text-gray-900"
+      >
+        Experience the Difference
+      </h2>
+      <p
+        className="mt-4 text-xl text-gray-500"
+      >
+        Try our interactive demo to see how our technology can enhance your ultrasound images.
+      </p>
+    </div>
+  </div>
+</div>
+`;
