@@ -97,13 +97,13 @@ export default function Home() {
         {/* Image Showcase */}
         <div className="mt-32">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="relative group">
+            <div className="relative group  rounded-lg overflow-hidden shadow-lg">
               <img
-                className="w-full h-64 object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105"
+                className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
                 src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1000&q=80"
                 alt="Medical ultrasound machine"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute bottom-4 left-4 text-white">
                   <h4 className="text-lg font-semibold">
                     State-of-the-art Equipment
@@ -114,13 +114,13 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="relative group">
+            <div className="relative group rounded-lg overflow-hidden shadow-lg ">
               <img
-                className="w-full h-64 object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105"
+                className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
                 src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=1000&q=80"
                 alt="Digital medical display"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute bottom-4 left-4 text-white">
                   <h4 className="text-lg font-semibold">Digital Processing</h4>
                   <p className="text-sm">Real-time image enhancement</p>

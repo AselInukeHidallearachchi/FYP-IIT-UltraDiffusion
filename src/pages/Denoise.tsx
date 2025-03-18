@@ -36,7 +36,7 @@ export default function Denoise() {
 
         try {
           const response = await fetch(
-            `https://e9a8-104-199-127-124.ngrok-free.app/denoiser/`,
+            `https://32ba-34-116-126-203.ngrok-free.app/denoiser/`,
             {
               method: "POST",
               body: formData,
