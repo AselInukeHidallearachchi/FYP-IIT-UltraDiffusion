@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Download, BarChart3 } from "lucide-react";
 import ImageUpload from "../components/ImageUpload";
+import MetricsLoader from "../components/MetricsLoader";
 
 interface EvaluationMetrics {
   psnr: number;
   ssim: number;
-  lpips: number; // Changed from mse to lpips to match API response
+  lpips: number;
 }
 
 export default function Denoise() {
@@ -152,63 +153,70 @@ export default function Denoise() {
                 </div>
               </div>
 
-              {/* Evaluation Results Section - Show if we have metrics and no errors */}
-              {metrics && !isProcessing && !error && (
-                <div className="mt-16">
-                  <div className="bg-gray-50 rounded-lg p-8">
-                    <div className="flex items-center mb-6">
-                      <BarChart3 className="h-6 w-6 text-indigo-600 mr-2" />
-                      <h3 className="text-xl font-semibold text-gray-900">
-                        Evaluation Results
-                      </h3>
+              {/* Evaluation Results Section */}
+              <div className="mt-16 bg-gray-50 rounded-lg p-8">
+                <div className="flex items-center mb-6">
+                  <BarChart3 className="h-6 w-6 text-indigo-600 mr-2" />
+                  <h3 className="text-xl font-semibold text-gray-900">
+                    Evaluation Results
+                  </h3>
+                </div>
+
+                {isProcessing ? (
+                  <MetricsLoader />
+                ) : error ? (
+                  <div className="text-red-500">Unable to display metrics.</div>
+                ) : metrics ? (
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="bg-white rounded-lg p-6 shadow-sm">
+                      <div className="text-sm font-medium text-gray-500">
+                        PSNR (Peak Signal-to-Noise Ratio)
+                      </div>
+                      <div className="mt-2 flex items-baseline">
+                        <span className="text-3xl font-semibold text-gray-900">
+                          {metrics.psnr.toFixed(2)}
+                        </span>
+                        <span className="ml-2 text-sm text-gray-500">dB</span>
+                      </div>
+                      <div className="mt-2 text-xs text-gray-500">
+                        Higher values indicate better quality
+                      </div>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                      <div className="bg-white rounded-lg p-6 shadow-sm">
-                        <div className="text-sm font-medium text-gray-500">
-                          PSNR (Peak Signal-to-Noise Ratio)
-                        </div>
-                        <div className="mt-2 flex items-baseline">
-                          <span className="text-3xl font-semibold text-gray-900">
-                            {metrics.psnr.toFixed(2)}
-                          </span>
-                          <span className="ml-2 text-sm text-gray-500">dB</span>
-                        </div>
-                        <div className="mt-2 text-xs text-gray-500">
-                          Higher values indicate better quality
-                        </div>
-                      </div>
 
-                      <div className="bg-white rounded-lg p-6 shadow-sm">
-                        <div className="text-sm font-medium text-gray-500">
-                          SSIM (Structural Similarity Index)
-                        </div>
-                        <div className="mt-2 flex items-baseline">
-                          <span className="text-3xl font-semibold text-gray-900">
-                            {metrics.ssim.toFixed(3)}
-                          </span>
-                        </div>
-                        <div className="mt-2 text-xs text-gray-500">
-                          Values closer to 1 indicate better similarity
-                        </div>
+                    <div className="bg-white rounded-lg p-6 shadow-sm">
+                      <div className="text-sm font-medium text-gray-500">
+                        SSIM (Structural Similarity Index)
                       </div>
+                      <div className="mt-2 flex items-baseline">
+                        <span className="text-3xl font-semibold text-gray-900">
+                          {metrics.ssim.toFixed(3)}
+                        </span>
+                      </div>
+                      <div className="mt-2 text-xs text-gray-500">
+                        Values closer to 1 indicate better similarity
+                      </div>
+                    </div>
 
-                      <div className="bg-white rounded-lg p-6 shadow-sm">
-                        <div className="text-sm font-medium text-gray-500">
-                          LPIPS (Learned Perceptual Image Patch Similarity)
-                        </div>
-                        <div className="mt-2 flex items-baseline">
-                          <span className="text-3xl font-semibold text-gray-900">
-                            {metrics.lpips.toFixed(3)}
-                          </span>
-                        </div>
-                        <div className="mt-2 text-xs text-gray-500">
-                          Lower values indicate better perceptual similarity
-                        </div>
+                    <div className="bg-white rounded-lg p-6 shadow-sm">
+                      <div className="text-sm font-medium text-gray-500">
+                        LPIPS (Learned Perceptual Image Patch Similarity)
+                      </div>
+                      <div className="mt-2 flex items-baseline">
+                        <span className="text-3xl font-semibold text-gray-900">
+                          {metrics.lpips.toFixed(3)}
+                        </span>
+                      </div>
+                      <div className="mt-2 text-xs text-gray-500">
+                        Lower values indicate better perceptual similarity
                       </div>
                     </div>
                   </div>
-                </div>
-              )}
+                ) : (
+                  <div className="text-gray-500">
+                    No evaluation metrics available.
+                  </div>
+                )}
+              </div>
 
               <div className="mt-8 text-center">
                 <button
