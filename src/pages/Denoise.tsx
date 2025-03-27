@@ -5,7 +5,7 @@ import ImageUpload from "../components/ImageUpload";
 interface EvaluationMetrics {
   psnr: number;
   ssim: number;
-  mse: number;
+  lpips: number; // Changed from mse to lpips to match API response
 }
 
 export default function Denoise() {
@@ -17,6 +17,7 @@ export default function Denoise() {
 
   const handleImageUpload = async (file: File) => {
     try {
+      // Read the file as data URL for preview
       const reader = new FileReader();
       reader.onload = async (e) => {
         const imageDataUrl = e.target?.result as string;
@@ -24,19 +25,21 @@ export default function Denoise() {
         setIsProcessing(true);
         setError(null);
 
-        // Example parameters
         const strength = 0.3;
         const steps = 150;
 
-        // Prepare form data
+        // Create form data to send to API
         const formData = new FormData();
         formData.append("image", file);
-        formData.append("strength", strength.toString());
-        formData.append("steps", steps.toString());
+        formData.append("original_image", file); // Send original for metrics calculation
+        formData.append("strength", String(strength));
+        formData.append("steps", String(steps));
+        formData.append("return_json", "true"); // Request JSON response with metrics
 
         try {
+          // Send to the denoiser API endpoint
           const response = await fetch(
-            `https://32ba-34-116-126-203.ngrok-free.app/denoiser/`,
+            `https://6272-34-82-130-214.ngrok-free.app/denoiser/`,
             {
               method: "POST",
               body: formData,
@@ -48,19 +51,18 @@ export default function Denoise() {
             throw new Error(errorData.error || `API error: ${response.status}`);
           }
 
-          const blob = await response.blob();
-          const processedImageUrl = URL.createObjectURL(blob);
+          // Process JSON response containing image and metrics
+          const responseData = await response.json();
 
-          // Update the processed image from API response
+          // Convert base64 image to URL for display
+          const base64Image = responseData.image;
+          const processedImageUrl = `data:image/png;base64,${base64Image}`;
           setProcessedImage(processedImageUrl);
 
-          // Here we set some dummy evaluation metrics
-          // so they always show after processing is complete
-          setMetrics({
-            psnr: 35.2,
-            ssim: 0.92,
-            mse: 0.01,
-          });
+          // Set metrics if available
+          if (responseData.metrics) {
+            setMetrics(responseData.metrics);
+          }
         } catch (apiError) {
           console.error("Error processing image:", apiError);
           setError(
@@ -101,7 +103,6 @@ export default function Denoise() {
           ) : (
             <>
               <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-                {/* Original Image */}
                 <div>
                   <h3 className="text-lg font-medium text-gray-900 mb-4">
                     Original Image
@@ -109,11 +110,9 @@ export default function Denoise() {
                   <img
                     src={originalImage}
                     alt="Original"
-                    className="w-full max-w-md h-auto rounded-lg shadow-sm object-contain"
+                    className="w-full rounded-lg shadow-sm"
                   />
                 </div>
-
-                {/* Processed Image */}
                 <div>
                   <h3 className="text-lg font-medium text-gray-900 mb-4">
                     Processed Image
@@ -133,7 +132,7 @@ export default function Denoise() {
                         <img
                           src={processedImage}
                           alt="Processed"
-                          className="w-full max-w-md h-auto rounded-lg shadow-sm object-contain"
+                          className="w-full rounded-lg shadow-sm"
                         />
                         <button
                           className="mt-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700"
@@ -153,16 +152,16 @@ export default function Denoise() {
                 </div>
               </div>
 
-              {/* Evaluation Results Section */}
-              <div className="mt-16">
-                <div className="bg-gray-50 rounded-lg p-8">
-                  <div className="flex items-center mb-6">
-                    <BarChart3 className="h-6 w-6 text-indigo-600 mr-2" />
-                    <h3 className="text-xl font-semibold text-gray-900">
-                      Evaluation Results
-                    </h3>
-                  </div>
-                  {metrics ? (
+              {/* Evaluation Results Section - Show if we have metrics and no errors */}
+              {metrics && !isProcessing && !error && (
+                <div className="mt-16">
+                  <div className="bg-gray-50 rounded-lg p-8">
+                    <div className="flex items-center mb-6">
+                      <BarChart3 className="h-6 w-6 text-indigo-600 mr-2" />
+                      <h3 className="text-xl font-semibold text-gray-900">
+                        Evaluation Results
+                      </h3>
+                    </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                       <div className="bg-white rounded-lg p-6 shadow-sm">
                         <div className="text-sm font-medium text-gray-500">
@@ -170,7 +169,7 @@ export default function Denoise() {
                         </div>
                         <div className="mt-2 flex items-baseline">
                           <span className="text-3xl font-semibold text-gray-900">
-                            {metrics.psnr}
+                            {metrics.psnr.toFixed(2)}
                           </span>
                           <span className="ml-2 text-sm text-gray-500">dB</span>
                         </div>
@@ -185,7 +184,7 @@ export default function Denoise() {
                         </div>
                         <div className="mt-2 flex items-baseline">
                           <span className="text-3xl font-semibold text-gray-900">
-                            {metrics.ssim}
+                            {metrics.ssim.toFixed(3)}
                           </span>
                         </div>
                         <div className="mt-2 text-xs text-gray-500">
@@ -195,28 +194,23 @@ export default function Denoise() {
 
                       <div className="bg-white rounded-lg p-6 shadow-sm">
                         <div className="text-sm font-medium text-gray-500">
-                          MSE (Mean Squared Error)
+                          LPIPS (Learned Perceptual Image Patch Similarity)
                         </div>
                         <div className="mt-2 flex items-baseline">
                           <span className="text-3xl font-semibold text-gray-900">
-                            {metrics.mse}
+                            {metrics.lpips.toFixed(3)}
                           </span>
                         </div>
                         <div className="mt-2 text-xs text-gray-500">
-                          Lower values indicate better results
+                          Lower values indicate better perceptual similarity
                         </div>
                       </div>
                     </div>
-                  ) : (
-                    <div className="text-gray-500">
-                      No evaluation metrics available yet.
-                    </div>
-                  )}
+                  </div>
                 </div>
-              </div>
+              )}
 
-              {/* Reset Button */}
-              <div className="mt-8 flex justify-center">
+              <div className="mt-8 text-center">
                 <button
                   className="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
                   onClick={() => {
