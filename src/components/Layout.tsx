@@ -1,11 +1,12 @@
 import React from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import { Brain, ImageDown, Home } from "lucide-react";
+import { Brain, ImageDown, Home, Sliders } from "lucide-react";
 import clsx from "clsx";
 
 const navigation = [
   { name: "Home", href: "/", icon: Home },
   { name: "Denoise Images", href: "/denoise", icon: ImageDown },
+  { name: "Filters", href: "/filters", icon: Sliders },
   { name: "About", href: "/about", icon: Brain },
 ];
 

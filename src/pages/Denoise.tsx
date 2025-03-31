@@ -40,7 +40,7 @@ export default function Denoise() {
         try {
           // Send to the denoiser API endpoint
           const response = await fetch(
-            `https://6272-34-82-130-214.ngrok-free.app/denoiser/`,
+            `https://4ed5-34-91-43-155.ngrok-free.app/denoiser/`,
             {
               method: "POST",
               body: formData,
