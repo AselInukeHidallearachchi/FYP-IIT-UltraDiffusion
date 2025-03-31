@@ -1,5 +1,5 @@
-import React from 'react';
-import { Lightbulb, Target, Sparkles } from 'lucide-react';
+import React from "react";
+import { Lightbulb, Target, Sparkles } from "lucide-react";
 
 export default function About() {
   return (
@@ -7,48 +7,63 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-            About Our Research
+            About UltraDiffusion
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-500">
-            Advancing medical imaging through innovative deep learning techniques
+            Enhancing ultrasound image quality using Denoising Diffusion
+            Probabilistic Models
           </p>
         </div>
 
         <div className="mt-20">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
+            {/* Background */}
             <div className="flex flex-col items-start">
               <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
                 <Lightbulb className="h-6 w-6" />
               </div>
-              <h3 className="mt-6 text-lg font-medium text-gray-900">Background</h3>
+              <h3 className="mt-6 text-lg font-medium text-gray-900">
+                Background
+              </h3>
               <p className="mt-2 text-base text-gray-500">
-                Ultrasound imaging faces persistent challenges with noise and image quality. 
-                Our research leverages advanced deep learning techniques to address these limitations 
-                through Denoising Diffusion Probabilistic Models (DDPMs).
+                Ultrasound imaging suffers from speckle noise and low contrast,
+                affecting diagnostic precision. UltraDiffusion addresses this by
+                leveraging fine-tuned diffusion models trained on medical
+                datasets, significantly improving visual clarity without losing
+                anatomical detail.
               </p>
             </div>
 
+            {/* Objectives */}
             <div className="flex flex-col items-start">
               <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
                 <Target className="h-6 w-6" />
               </div>
-              <h3 className="mt-6 text-lg font-medium text-gray-900">Objectives</h3>
+              <h3 className="mt-6 text-lg font-medium text-gray-900">
+                Objectives
+              </h3>
               <p className="mt-2 text-base text-gray-500">
-                We aim to develop a robust, real-time denoising solution that enhances ultrasound 
-                image quality while preserving critical diagnostic information. Our focus is on 
-                creating practical tools for clinical applications.
+                Our goal is to create a lightweight, real-time denoising
+                pipeline that integrates Denoising Diffusion Probabilistic
+                Models with clinically relevant ultrasound data, providing
+                clear, high-quality imaging for healthcare professionals.
               </p>
             </div>
 
+            {/* Innovation */}
             <div className="flex flex-col items-start">
               <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
                 <Sparkles className="h-6 w-6" />
               </div>
-              <h3 className="mt-6 text-lg font-medium text-gray-900">Innovation</h3>
+              <h3 className="mt-6 text-lg font-medium text-gray-900">
+                Innovation
+              </h3>
               <p className="mt-2 text-base text-gray-500">
-                Our approach combines state-of-the-art DDPMs with specialized training on medical 
-                imaging data, resulting in superior denoising performance compared to traditional 
-                methods.
+                UltraDiffusion fine-tunes a Stable Diffusion backbone using a
+                UNet2DConditionModel, LPIPS perceptual loss, AutoencoderKL, and
+                speckle noise augmentation. This prototype demonstrates the
+                feasibility of applying diffusion models to ultrasound
+                denoising.
               </p>
             </div>
           </div>
@@ -60,7 +75,8 @@ export default function About() {
               alt="Medical research laboratory"
             />
             <p className="mt-4 text-sm text-gray-500 text-center">
-              Our research facility where we develop and test our DDPM solutions
+              Our prototype system is trained and evaluated using ultrasound
+              datasets enhanced with realistic noise patterns
             </p>
           </div>
         </div>

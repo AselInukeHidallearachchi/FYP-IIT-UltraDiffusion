@@ -47,13 +47,13 @@ export default function Home() {
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-gray-900">
-                  Noise Reduction
+                  Noise-Adaptive Denoising
                 </h3>
                 <p className="mt-3 text-base text-gray-500">
-                  Our DDPM model effectively removes various types of noise
-                  while preserving important anatomical details in ultrasound
-                  images. The advanced architecture ensures high-quality results
-                  across different imaging conditions.
+                  Our system uses fine-tuned diffusion models with a
+                  UNet2DCondition architecture to effectively reduce speckle and
+                  Gaussian noise in ultrasound images while preserving fine
+                  anatomical structures.
                 </p>
               </div>
             </div>
@@ -67,10 +67,10 @@ export default function Home() {
                   Real-time Processing
                 </h3>
                 <p className="mt-3 text-base text-gray-500">
-                  Optimized for speed and efficiency, our system processes
-                  images in real-time, making it suitable for live ultrasound
-                  imaging applications. The streamlined pipeline ensures minimal
-                  latency without compromising quality.
+                  Enabled by mixed-precision training (FP16) and model
+                  optimization with Hugging Face Accelerate, our solution
+                  delivers real-time enhancement suitable for clinical
+                  applications.
                 </p>
               </div>
             </div>
@@ -81,13 +81,12 @@ export default function Home() {
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-gray-900">
-                  Advanced Processing
+                  Deep Learning Optimized
                 </h3>
                 <p className="mt-3 text-base text-gray-500">
-                  Our system leverages state-of-the-art deep learning techniques
-                  to provide superior denoising results. The model adapts to
-                  different noise patterns and image characteristics
-                  automatically.
+                  Leverages Stable Diffusion fine-tuning, LPIPS-based loss
+                  metrics, and AutoencoderKL compression for superior perceptual
+                  quality. Automatically adapts to varying image quality.
                 </p>
               </div>
             </div>
