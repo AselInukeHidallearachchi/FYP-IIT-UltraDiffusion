@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
-    <div className="relative">
+    <div className="relative" data-testid="home-page">
       {/* Hero Section */}
       <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-600 opacity-10" />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">

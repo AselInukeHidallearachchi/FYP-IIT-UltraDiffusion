@@ -32,7 +32,7 @@ export default function Filters() {
 
     try {
       const response = await fetch(
-        "https://4ed5-34-91-43-155.ngrok-free.app/filters/",
+        "https://4081-34-168-24-28.ngrok-free.app/filters/",
         {
           method: "POST",
           body: formData,

@@ -5,30 +5,32 @@ module.exports = {
   testEnvironment: "jsdom",
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
   setupFilesAfterEnv: [
-    "@testing-library/jest-dom/extend-expect",
-    "<rootDir>/src/__tests__/setup.ts"
+    "<rootDir>/../node_modules/@testing-library/jest-dom/dist/index.js",
+    "<rootDir>/__tests__/setup.ts"
   ],
   testMatch: [
-    "<rootDir>/src/__tests__/**/*.test.(ts|tsx|js|jsx)"
+    "<rootDir>/__tests__/**/*.test.(ts|tsx|js|jsx)"
   ],
   testPathIgnorePatterns: [
-    "<rootDir>/src/__tests__/__mocks__/"
+    "<rootDir>/__tests__/__mocks__/"
   ],
   moduleNameMapper: {
     "\\.(css|less|scss|sass)$": "identity-obj-proxy",
-    "\\.(jpg|jpeg|png|gif|webp|svg)$": "<rootDir>/src/__tests__/__mocks__/fileMock.js"
+    "\\.(jpg|jpeg|png|gif|webp|svg)$": "<rootDir>/__tests__/__mocks__/fileMock.cjs"
   },
   collectCoverage: true,
   collectCoverageFrom: [
-    "src/**/*.{ts,tsx}",
-    "!src/**/*.d.ts",
-    "!src/main.tsx",
-    "!src/vite-env.d.ts"
+    "./**/*.{ts,tsx}",
+    "!./**/*.d.ts",
+    "!./main.tsx",
+    "!./vite-env.d.ts",
+    "!./__tests__/**/*",
+    "!./**/*.test.{ts,tsx}"
   ],
-  coverageDirectory: "coverage",
+  coverageDirectory: "../coverage",
   coverageReporters: ["text", "lcov"],
   verbose: true,
   testEnvironmentOptions: {
     url: "http://localhost"
   }
-};
+}; 
