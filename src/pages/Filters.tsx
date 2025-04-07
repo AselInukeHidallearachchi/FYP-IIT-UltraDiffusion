@@ -52,7 +52,7 @@ export default function Filters() {
   };
 
   return (
-    <div className="py-16 bg-white min-h-screen">
+    <div className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
           <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
@@ -69,7 +69,7 @@ export default function Filters() {
             <ImageUpload onImageUpload={handleImageUpload} />
           </div>
         ) : (
-          <>
+          <div className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-lg font-medium text-gray-900 mb-4">
@@ -87,7 +87,7 @@ export default function Filters() {
                   Filtered Outputs
                 </h3>
                 {isProcessing ? (
-                  <div className="flex flex-col items-center justify-center h-full bg-gray-50 rounded-lg p-8">
+                  <div className="flex flex-col items-center justify-center bg-gray-50 rounded-lg p-8 min-h-[320px]">
                     <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-500 mb-4"></div>
                     <p className="text-gray-500">Applying filters...</p>
                   </div>
@@ -118,20 +118,22 @@ export default function Filters() {
               </div>
             </div>
 
-            <div className="mt-10 text-center">
-              <button
-                className="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
-                onClick={() => {
-                  setOriginalImage(null);
-                  setFilteredImages(null);
-                  setIsProcessing(false);
-                  setError(null);
-                }}
-              >
-                Process Another Image
-              </button>
-            </div>
-          </>
+            {!isProcessing && (
+              <div className="text-center">
+                <button
+                  className="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
+                  onClick={() => {
+                    setOriginalImage(null);
+                    setFilteredImages(null);
+                    setIsProcessing(false);
+                    setError(null);
+                  }}
+                >
+                  Process Another Image
+                </button>
+              </div>
+            )}
+          </div>
         )}
       </div>
     </div>

@@ -1,5 +1,5 @@
-import React, { useCallback } from 'react';
-import { Upload } from 'lucide-react';
+import React, { useCallback } from "react";
+import { Upload } from "lucide-react";
 
 interface ImageUploadProps {
   onImageUpload: (file: File) => void;
@@ -7,25 +7,31 @@ interface ImageUploadProps {
   maxSize?: number;
 }
 
-export default function ImageUpload({ 
-  onImageUpload, 
-  accept = "image/*", 
-  maxSize = 5 * 1024 * 1024 
+export default function ImageUpload({
+  onImageUpload,
+  accept = "image/*",
+  maxSize = 5 * 1024 * 1024,
 }: ImageUploadProps) {
-  const handleDrop = useCallback((e: React.DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    const file = e.dataTransfer.files[0];
-    if (file && file.type.startsWith('image/') && file.size <= maxSize) {
-      onImageUpload(file);
-    }
-  }, [onImageUpload, maxSize]);
+  const handleDrop = useCallback(
+    (e: React.DragEvent<HTMLDivElement>) => {
+      e.preventDefault();
+      const file = e.dataTransfer.files[0];
+      if (file && file.type.startsWith("image/") && file.size <= maxSize) {
+        onImageUpload(file);
+      }
+    },
+    [onImageUpload, maxSize]
+  );
 
-  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file && file.size <= maxSize) {
-      onImageUpload(file);
-    }
-  }, [onImageUpload, maxSize]);
+  const handleChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const file = e.target.files?.[0];
+      if (file && file.size <= maxSize) {
+        onImageUpload(file);
+      }
+    },
+    [onImageUpload, maxSize]
+  );
 
   return (
     <div

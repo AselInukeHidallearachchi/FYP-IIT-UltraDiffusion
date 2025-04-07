@@ -99,13 +99,13 @@ export default function Home() {
             <div className="relative group  rounded-lg overflow-hidden shadow-lg">
               <img
                 className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
-                src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1000&q=80"
+                src="https://images.unsplash.com/photo-1691933880037-ce9d151ab922?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Medical ultrasound machine"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute bottom-4 left-4 text-white">
                   <h4 className="text-lg font-semibold">
-                    State-of-the-art Equipment
+                    State-of-the-art Technology
                   </h4>
                   <p className="text-sm">
                     Advanced ultrasound imaging technology
@@ -116,7 +116,7 @@ export default function Home() {
             <div className="relative group rounded-lg overflow-hidden shadow-lg ">
               <img
                 className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
-                src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=1000&q=80"
+                src="https://plus.unsplash.com/premium_photo-1665203550521-3281e4a07c29?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Digital medical display"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
