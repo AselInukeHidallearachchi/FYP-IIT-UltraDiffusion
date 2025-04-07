@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { ImageIcon } from "lucide-react";
 import ImageUpload from "../components/ImageUpload";
+import { API_ENDPOINTS } from "../config";
 
 const FILTER_NAMES = {
   gaussian: "Gaussian Filter",
@@ -31,13 +32,10 @@ export default function Filters() {
     formData.append("image", file);
 
     try {
-      const response = await fetch(
-        "https://4081-34-168-24-28.ngrok-free.app/filters/",
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
+      const response = await fetch(API_ENDPOINTS.filters, {
+        method: "POST",
+        body: formData,
+      });
 
       if (!response.ok) {
         const errorData = await response.json();

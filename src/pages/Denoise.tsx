@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Download, BarChart3 } from "lucide-react";
+import { Download, BarChart3, ImageIcon } from "lucide-react";
 import ImageUpload from "../components/ImageUpload";
 import MetricsLoader from "../components/MetricsLoader";
+import { API_ENDPOINTS } from "../config";
 
 interface EvaluationMetrics {
   psnr: number;
@@ -39,13 +40,10 @@ export default function Denoise() {
 
         try {
           // Send to the denoiser API endpoint
-          const response = await fetch(
-            `https://4081-34-168-24-28.ngrok-free.app/denoiser/`,
-            {
-              method: "POST",
-              body: formData,
-            }
-          );
+          const response = await fetch(API_ENDPOINTS.denoiser, {
+            method: "POST",
+            body: formData,
+          });
 
           if (!response.ok) {
             const errorData = await response.json();
