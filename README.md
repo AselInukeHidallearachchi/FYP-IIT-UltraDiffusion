@@ -7,8 +7,16 @@ A Final Year Project (FYP) focusing on enhancing ultrasound imaging quality thro
 ![Status](https://img.shields.io/badge/Status-In%20Development-yellow?style=for-the-badge)
 
 ## 🎯 Project Overview
-
 UltraDiffusion addresses the critical challenge of noise in ultrasound imaging, particularly speckle noise and low contrast issues that affect diagnostic accuracy. By leveraging fine-tuned Stable Diffusion models with specialized architectures, this project delivers real-time image enhancement suitable for clinical applications.
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/4fb618e2-0e23-49af-890b-71c6290bdcf2" width="45%" />
+  <img src="https://github.com/user-attachments/assets/96253583-594f-49b3-b523-cdf04814b0a5" width="45%" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/70140641-f625-4b3a-80a3-889a73c0fceb" width="45%" />
+  <img src="https://github.com/user-attachments/assets/2e5e6852-2cd5-4bfe-901c-92c7c118d3f0" width="45%" />
+</p>
 
 ### Key Features
 
