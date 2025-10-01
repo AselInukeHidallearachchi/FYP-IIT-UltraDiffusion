@@ -231,6 +231,15 @@ UltraDiffusionFE(V2)/
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
+## 🎓 Interview Preparation
+
+Preparing for your project presentation or viva? Check out our comprehensive [Interview Questions Guide](INTERVIEW_GUIDE.md) which includes:
+- 89+ technical and conceptual questions
+- Organized by topic (Deep Learning, Implementation, Ethics, etc.)
+- Answers and explanations for each question
+- Tips for demonstrations and presentations
+- Quick reference for key facts and numbers
+
 ## 🙏 Acknowledgments
 
 - Hugging Face for the Diffusers library
